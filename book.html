@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>book</title>
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<section class="header">
+
+   <a href="home.html" class="logo">BOOK</a>
+
+   <nav class="navbar">
+      <a href="home.html">home</a>
+      <a href="about.html">about</a>
+      <a href="book.html">book</a>
+      <a href="khalti.html">donate</a>
+   </nav>
+
+   <div id="menu-btn" class="fas fa-bars"></div>
+
+</section>
+
+<!-- header section ends -->
+
+<div class="heading" style="background:url(images/header-bg-3.png) no-repeat">
+   <h1>book now</h1>
+</div>
+
+<!-- booking section starts  -->
+
+<section class="booking">
+
+   <h1 class="heading-title">book our services!</h1>
+
+   <form action="https://formspree.io/f/xbjejzwl" method="post" class="book-form">
+
+      <div class="flex">
+         <div class="inputBox">
+            <span>name :</span>
+            <input type="text" placeholder="enter your name" name="name">
+         </div>
+         <div class="inputBox">
+            <span>email :</span>
+            <input type="email" placeholder="enter your email" name="email">
+         </div>
+         <div class="inputBox">
+         <span>fb id url :</span>
+         <input type="url" placeholder="enter your fb id url" name="fb">
+         </div>
+         <div class="inputBox">
+            <span>phone :</span>
+            <input type="number" placeholder="enter your number" name="phone">
+         </div>
+         <div class="inputBox">
+            <span>address :</span>
+            <input type="text" placeholder="enter your address" name="address">
+         </div>
+         <div class="inputBox">
+            <span>Which services :</span>
+            <label for="choose-option">Choose a service:</label><br>
+            <select id="choose-option" onclick="showButton(value)" placeholder="select a service you want" type="text">
+            <option value="option1">Select an option</option>
+            <option vakue="app">Make App - Rs 1k to Rs 10k</option>
+            <option value="website">Make Website - Rs 1k to Rs 6k</option>
+            <option value="invest">Donate now - Rs 10 to Rs 5k</option>
+            
+         </div>
+         <div class="inputBox">
+            <span>today's date :</span>
+            <input type="date" name="date">
+         </div>
+         <div class="inputBox">
+            <span>today's time :</span>
+            <input type="time" name="time">
+         </div>
+      </div>
+      <div class="inputBox">
+      <span>Payment Proof :</span>
+      <input type="file" name="upload">
+      </div>
+      
+      <input type="submit" value="submit" class="btn" name="send">
+      <a href="khalti.html"><input type="donate" value="donate" class="btn2" name="Donate now">
+   </form>
+
+</section>
+
+<!-- booking section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+   <div class="box-container">
+
+      <div class="box">
+         <h3>quick links</h3>
+         <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
+         <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
+         <a href="book.html"> <i class="fas fa-angle-right"></i> book</a>
+         <a href="khalti.html"> <i class="fas fa-angle-right"></i> donate</a>
+      </div>
+
+      <div class="box">
+         <h3>extra links</h3>
+         <a href="mailto:aakristkarki@gmail.com"> <i class="fas fa-angle-right"></i> ask questions</a>
+         <a href="about.html"> <i class="fas fa-angle-right"></i> about us</a>
+         <a href="policy.txt"> <i class="fas fa-angle-right"></i> privacy policy</a>
+         <a href="terms.txt"> <i class="fas fa-angle-right"></i> terms of use</a>
+      </div>
+
+      <div class="box">
+         <h3>contact info</h3>
+         <a href="#"> <i class="fas fa-phone"></i> +9779881205592 </a>
+         <a href="#"> <i class="fas fa-envelope"></i> aakristkarki@gmail.com </a>
+         <a href="#"> <i class="fas fa-envelope"></i> citysasto@gmail.com </a>
+         <a href="#"> <i class="fas fa-map"></i> Damak 1 ,Jhapa ,Nepal</a>
+      </div>
+
+      <div class="box">
+         <h3>follow us</h3>
+         <a href="https://www.facebook.com/profile.php?id=100089506921920"> <i class="fab fa-facebook-f"></i> facebook </a>
+      </div>
+
+   </div>
+
+   <div class="credit"> created by <span>Hb Editz YT</span> | all rights reserved! </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
