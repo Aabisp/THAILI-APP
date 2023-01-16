@@ -574,7 +574,7 @@ section{
 
 
 .footer{
-   background: url(footer-bg.jpg) no-repeat;
+   background: url(../footer-bg.jpg) no-repeat;
    background-size: cover;
    background-position: center;
 }
