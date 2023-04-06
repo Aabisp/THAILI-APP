@@ -3,11 +3,10 @@
 <head>
 	<title>Subscription Purchase</title>
 	<script src="https://cdn.khalti.com/payment.js"></script>
+	<script src="https://khalti.com/static/khalti-checkout.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
-	<script src="https://khalti.com/static/khalti-checkout.js"></script>
-
 	<script>
 		// Firebase configuration
 		var firebaseConfig = {
@@ -73,17 +72,14 @@
 				}
 			};
 			var payment = new KhaltiCheckout(config);
-
-			// Open the Khalti payment window
-			payment.show({amount: 1000});
+			payment.show();
 		}
 	</script>
 </head>
 <body>
 	<h1>Subscription Purchase</h1>
-	<label for="uid">UID:</label>
-	<input type="text" id="uid" name="uid" value="marksky"><br><br>
+	<label for="uid">Enter UID:</label>
+	<input type="text" id="uid"><br><br>
 	<button onclick="purchaseSubscription()">Purchase Subscription</button>
 </body>
 </html>
-
