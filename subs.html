@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Subscription Purchase</title>
+	<script src="https://cdn.khalti.com/payment.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+	<script>
+		// Firebase configuration
+		var firebaseConfig = {
+            apiKey: "AIzaSyCfOx-E2bmIvtGMKYyEkI32dApLn6a5ZaY",
+  authDomain: "tsm-esports-nepal.firebaseapp.com",
+  databaseURL: "https://tsm-esports-nepal-default-rtdb.firebaseio.com",
+  projectId: "tsm-esports-nepal",
+  storageBucket: "tsm-esports-nepal.appspot.com",
+  messagingSenderId: "1048495763625",
+  appId: "1:1048495763625:web:fffb3f78d6e4b3537d39b8",
+  measurementId: "G-CGSK1HKTEZ"
+		};
+
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+
+		// Function to handle the subscription purchase
+		function purchaseSubscription() {
+			// Get the UID from the user input
+			var uid = document.getElementById("uid").value;
+
+			// Set the payment method to Khalti
+			var paymentMethod = "Khalti";
+
+			// Set the payment status to "Pending"
+			var paymentStatus = "Pending";
+
+			// Initialize Khalti payment
+			var config = {
+				publicKey: "live_public_key_2ff739a57337486bb46e4d3d767e28e8",
+				productIdentity: "Subscription",
+				productName: "Monthly Subscription",
+				productUrl: "https://yourwebsite.com/subscription",
+				eventHandler: {
+					onSuccess(payload) {
+						// Payment successful, update payment status to "Success"
+						paymentStatus = "Success";
+						// Send the details to the Firebase server
+						firebase.database().ref("subscriptions").push().set({
+							uid: uid,
+							paymentMethod: paymentMethod,
+							paymentStatus: paymentStatus
+						});
+						// Display a message to the user
+						alert("Subscription purchased successfully!");
+					},
+					onError(error) {
+						// Payment unsuccessful, update payment status to "Error"
+						paymentStatus = "Error";
+						// Send the details to the Firebase server
+						firebase.database().ref("subscriptions").push().set({
+							uid: uid,
+							paymentMethod: paymentMethod,
+							paymentStatus: paymentStatus
+						});
+						// Display a message to the user
+						alert("Subscription purchase failed. Please try again.");
+					},
+					onClose() {
+						console.log("Payment window closed.");
+					}
+				}
+			};
+			var payment = new KhaltiCheckout(config);
+
+			// Open the Khalti payment window
+			payment.show({amount: 1000});
+		}
+	</script>
+</head>
+<body>
+	<h1>Subscription Purchase</h1>
+	<label for="uid">UID:</label>
+	<input type="text" id="uid" name="uid" value="marksky"><br><br>
+	<button onclick="purchaseSubscription()">Purchase Subscription</button>
+</body>
+</html>
