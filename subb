@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>book</title>
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<section class="header">
+
+   <a href="home.html" class="logo">DONATE OR INVEST</a>
+
+   <nav class="navbar">
+      <a href="home.html">home</a>
+      <a href="about.html">about</a>
+      <a href="book.html">book</a>
+      <a href="khalti.html">donate</a>
+   </nav>
+
+   <div id="menu-btn" class="fas fa-bars"></div>
+
+</section>
+
+<!-- header section ends -->
+
+<div class="heading" style="background:url(header-bg-3.png) no-repeat">
+   <h1>donate or invest now</h1>
+</div>
+
+
+
+
+<!-- payment section starts -->
+<html>
+<head>
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+    <!-- Add the Firebase script to your HTML file -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-database.js"></script>
+</head>
+<body>
+    ...
+    <!-- Place this where you need payment button -->
+    <button align="center;" style="padding: 15px;" id="payment-button">Pay with Khalti</button>
+    <!-- Place this where you need payment button -->
+    <!-- Paste this code anywhere in you body tag -->
+    <script>
+        // Initialize Firebase
+        const firebaseConfig = {
+          // Add your Firebase project configuration here
+          apiKey: "AIzaSyCfOx-E2bmIvtGMKYyEkI32dApLn6a5ZaY",
+  authDomain: "tsm-esports-nepal.firebaseapp.com",
+  databaseURL: "https://tsm-esports-nepal-default-rtdb.firebaseio.com",
+  projectId: "tsm-esports-nepal",
+  storageBucket: "tsm-esports-nepal.appspot.com",
+  messagingSenderId: "1048495763625",
+  appId: "1:1048495763625:web:fffb3f78d6e4b3537d39b8",
+  measurementId: "G-CGSK1HKTEZ"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the Firebase Realtime Database
+        const database = firebase.database();
+
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "live_public_key_2ff739a57337486bb46e4d3d767e28e8",
+            "productIdentity": "1234567890",
+            "productName": "Donate",
+            "productUrl":"https://aabisp.github.io/THAILI-APP/subscription.html",
+            "paymentPreference": [
+                "KHALTI",
+                "EBANKING",
+                "MOBILE_BANKING",
+                "CONNECT_IPS",
+                "SCT",
+                ],
+            "eventHandler": {
+                onSuccess (payload) {
+                    // Send payment status to Firebase
+                    database.ref('payments').push({
+                      status: 'success',
+                      amount: payload.amount,
+                      transaction_id: payload.transaction_id
+                    });
+                    
+                    // Display success message to user
+                    console.log(payload);
+                    alert("Payment Succesfull");
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            // minimum transaction amount must be 10, i.e 1000 in paisa.
+            checkout.show({amount: 10000});
+        }
+    </script>
+    <!-- Paste this code anywhere in you body tag --!>
+<!-- payment section ends -->
+
+ 
+ 
+ 
+
+ 
+ </body>
+ </html>
